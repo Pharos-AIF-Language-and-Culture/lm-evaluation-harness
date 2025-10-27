@@ -1,0 +1,27 @@
+group: pharos_global_mmlu
+
+metadata:
+  version: 1.0
+  description: "A subset of Global-MMLU languages (cs, de, el, es, etc.) for the Pharos project."
+
+task:
+  - global_mmlu_full_cs  
+  - global_mmlu_full_de  
+  - global_mmlu_full_el  
+  - global_mmlu_full_es
+  - global_mmlu_full_fr  
+  - global_mmlu_full_it
+  - global_mmlu_full_lt
+  - global_mmlu_full_nl
+  - global_mmlu_full_pl
+  - global_mmlu_full_pt
+  - global_mmlu_full_ro
+  - global_mmlu_full_sr
+  - global_mmlu_full_sv
+  - global_mmlu_full_tr
+  - global_mmlu_full_uk
+  - global_mmlu_full_ar
+  - global_mmlu_full_zh
+  - global_mmlu_full_ja
+  - global_mmlu_full_ko
+  - global_mmlu_full_ru

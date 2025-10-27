@@ -1,0 +1,25 @@
+# This file defines the "pharos_benchmarks" as a collection of other tasks.
+group: pharos_benchmarks
+
+metadata:
+  version: 1.0
+  description: "The Pharos Benchmarks, a collection of multilingual and Greek-specific tasks."
+
+task:
+  ### 1. Datasets (e.g., Global-MMLU) already existing in lm-evaluation-harness
+  # lm-eval will find them in the main tasks/ directory.
+  # We use a pharos specific configuration because we many not need all of their languages, etc.
+  - pharos_global_mmlu
+  
+  # ### 2. Other multilingual datasets with no tasks defined in lm-evaluation-harness
+
+  # ### 3. Greek-specific datasets ###
+  - greek_pcr
+
+
+
+# Commands to test
+# export PHAROS_BENCHMARKS=pharos_benchmarks # or global_mmlu_full_el, etc.
+# lm_eval --model hf --model_args pretrained=EleutherAI/pythia-14m  --tasks   ${PHAROS_BENCHMARKS} --limit 2  --log_samples      --output_path output
+
+# lm_eval --model dummy --tasks   ${PHAROS_BENCHMARKS} --limit 2  --log_samples      --output_path output
