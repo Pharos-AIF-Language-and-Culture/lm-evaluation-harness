@@ -1,0 +1,19 @@
+task: mcqa_greek_asep
+dataset_path: ilsp/mcqa_greek_asep
+dataset_name: null 
+test_split: default
+num_fewshot: 0
+output_type: multiple_choice   
+doc_to_text: "Question: {{question}}\nAnswer:"
+doc_to_choice: "choices"
+doc_to_target: "answer"  
+metric_list:
+  - metric: acc
+    higher_is_better: true
+  - metric: acc_norm
+    higher_is_better: true
+metadata:
+  version: 1.0
+  task_type: multiple_choice   
+  language: Greek     
+  author: ILSP/Athena RC
