@@ -12,6 +12,7 @@ task:
   - pharos_global_mmlu
   
   # ### 2. Other multilingual datasets with no tasks defined in lm-evaluation-harness
+  - mmlux
 
   # ### 3. Greek-specific datasets ###
   - greek_pcr

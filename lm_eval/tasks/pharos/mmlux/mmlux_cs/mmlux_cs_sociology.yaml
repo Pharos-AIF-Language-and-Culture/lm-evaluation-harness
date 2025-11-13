@@ -1,0 +1,37 @@
+task: mmlux_cs_sociology
+task_alias: MMLU-X CS - sociology
+dataset_path: Eurolingua/mmlux
+dataset_name: sociology_CS
+output_type: multiple_choice
+validation_split: test
+doc_to_text: |
+  {{question}}
+  A. {{choices[0]}}
+  B. {{choices[1]}}
+  C. {{choices[2]}}
+  D. {{choices[3]}}
+  Answer:
+doc_to_choice:
+  - "A"
+  - "B"
+  - "C"
+  - "D"
+# Normalize gold label robustly:
+#  - accepts 0..3, 1..4, or letters "A".."D"
+#  - accepts string digits (e.g., "1")
+doc_to_target: >
+  {%- set L = ["A","B","C","D"] -%}
+  {%- if answer is number -%}
+    {%- if 0 <= answer < 4 -%}{{ L[answer] }}
+    {%- elif 1 <= answer <= 4 -%}{{ L[answer-1] }}
+    {%- else -%}A
+    {%- endif -%}
+  {%- elif answer in L -%}{{ answer }}
+  {%- elif answer|string in ["0","1","2","3","4"] -%}
+    {%- set i = (answer|string)|int -%}
+    {%- if 0 <= i < 4 -%}{{ L[i] }}
+    {%- elif 1 <= i <= 4 -%}{{ L[i-1] }}
+    {%- else -%}A
+    {%- endif -%}
+  {%- else -%}A
+  {%- endif -%}
