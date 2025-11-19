@@ -10,6 +10,7 @@ task:
   # lm-eval will find them in the main tasks/ directory.
   # We use a pharos specific configuration because we many not need all of their languages, etc.
   - pharos_global_mmlu
+  - pharos_belebele
   
   # ### 2. Other multilingual datasets with no tasks defined in lm-evaluation-harness
   - mmlux
