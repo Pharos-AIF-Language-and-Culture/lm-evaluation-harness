@@ -1,0 +1,24 @@
+task: mgsm_greek
+dataset_path: ilsp/mgsm_greek
+output_type: generate_until
+training_split: train
+test_split: test
+num_fewshot: 0
+doc_to_text: "Solve this grade-school math problem in Greek:\n\n{{question}}\nAnswer:"
+doc_to_target: "{{answer_number}}"
+
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+
+generation_kwargs:
+  until:
+    - "\n"
+  max_gen_toks: 64
+
+metadata:
+  version: 1.0
+  language: Greek
