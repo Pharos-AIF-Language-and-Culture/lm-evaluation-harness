@@ -10,16 +10,15 @@ task:
   # lm-eval will find them in the main tasks/ directory.
   # We use a pharos specific configuration because we many not need all of their languages, etc.
   - pharos_global_mmlu
-  
+
   # ### 2. Other multilingual datasets with no tasks defined in lm-evaluation-harness
   - mmlux
 
   # ### 3. Greek-specific datasets ###
   - greek_pcr
   - mcqa_greek_asep
-
-
-
+  - medical_mcqa_greek
+  - ancient-modern_greek_translations
 # Commands to test
 # export PHAROS_BENCHMARKS=pharos_benchmarks # or global_mmlu_full_el, etc.
 # lm_eval --model hf --model_args pretrained=EleutherAI/pythia-14m  --tasks   ${PHAROS_BENCHMARKS} --limit 2  --log_samples      --output_path output
