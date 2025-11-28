@@ -19,8 +19,10 @@ task:
   - mcqa_greek_asep
   - medical_mcqa_greek
   - ancient-modern_greek_translations
+  - modern-ancient_greek_translations
   - mgsm_greek
-
+  - mythotopia_english-greek
+  - mythotopia_greek-english
 # Commands to test
 # export PHAROS_BENCHMARKS=pharos_benchmarks # or global_mmlu_full_el, etc.
 # lm_eval --model hf --model_args pretrained=EleutherAI/pythia-14m  --tasks   ${PHAROS_BENCHMARKS} --limit 2  --log_samples      --output_path output
