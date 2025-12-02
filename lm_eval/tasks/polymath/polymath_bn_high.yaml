@@ -1,0 +1,7 @@
+include: _default_template_bn_yaml
+task: polymath_bn_high
+test_split: high
+
+metadata:
+  description: "PolyMath Bengali - High"
+  difficulty: high

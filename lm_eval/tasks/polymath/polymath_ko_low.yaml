@@ -1,0 +1,7 @@
+include: _default_template_ko_yaml
+task: polymath_ko_low
+test_split: low
+
+metadata:
+  description: "PolyMath Korean - Low"
+  difficulty: low

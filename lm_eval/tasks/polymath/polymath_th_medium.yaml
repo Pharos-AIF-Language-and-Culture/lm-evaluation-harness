@@ -1,0 +1,7 @@
+include: _default_template_th_yaml
+task: polymath_th_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Thai - Medium"
+  difficulty: medium

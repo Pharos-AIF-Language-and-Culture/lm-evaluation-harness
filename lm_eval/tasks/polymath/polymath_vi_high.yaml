@@ -1,0 +1,7 @@
+include: _default_template_vi_yaml
+task: polymath_vi_high
+test_split: high
+
+metadata:
+  description: "PolyMath Vietnamese - High"
+  difficulty: high

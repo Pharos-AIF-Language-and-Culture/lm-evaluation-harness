@@ -1,0 +1,7 @@
+include: _default_template_bn_yaml
+task: polymath_bn_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Bengali - Medium"
+  difficulty: medium

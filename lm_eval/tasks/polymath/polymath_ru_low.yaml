@@ -1,0 +1,7 @@
+include: _default_template_ru_yaml
+task: polymath_ru_low
+test_split: low
+
+metadata:
+  description: "PolyMath Russian - Low"
+  difficulty: low

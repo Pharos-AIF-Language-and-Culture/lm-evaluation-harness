@@ -1,0 +1,6 @@
+group: polymath_ko
+task:
+  - polymath_ko_top
+  - polymath_ko_high
+  - polymath_ko_medium
+  - polymath_ko_low

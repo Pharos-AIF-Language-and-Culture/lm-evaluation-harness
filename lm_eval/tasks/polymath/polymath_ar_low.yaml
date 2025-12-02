@@ -1,0 +1,7 @@
+include: _default_template_ar_yaml
+task: polymath_ar_low
+test_split: low
+
+metadata:
+  description: "PolyMath Arabic - Low"
+  difficulty: low

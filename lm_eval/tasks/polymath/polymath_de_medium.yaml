@@ -1,0 +1,7 @@
+include: _default_template_de_yaml
+task: polymath_de_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath German - Medium"
+  difficulty: medium

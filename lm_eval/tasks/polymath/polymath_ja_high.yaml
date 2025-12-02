@@ -1,0 +1,7 @@
+include: _default_template_ja_yaml
+task: polymath_ja_high
+test_split: high
+
+metadata:
+  description: "PolyMath Japanese - High"
+  difficulty: high

@@ -1,0 +1,7 @@
+include: _default_template_pt_yaml
+task: polymath_pt_high
+test_split: high
+
+metadata:
+  description: "PolyMath Portuguese - High"
+  difficulty: high

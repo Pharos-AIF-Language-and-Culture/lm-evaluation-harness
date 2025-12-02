@@ -1,0 +1,7 @@
+include: _default_template_ko_yaml
+task: polymath_ko_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Korean - Medium"
+  difficulty: medium

@@ -1,0 +1,7 @@
+include: _default_template_bn_yaml
+task: polymath_bn_top
+test_split: top
+
+metadata:
+  description: "PolyMath Bengali - Top"
+  difficulty: top

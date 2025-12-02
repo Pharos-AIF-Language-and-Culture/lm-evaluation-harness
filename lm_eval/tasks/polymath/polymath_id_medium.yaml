@@ -1,0 +1,7 @@
+include: _default_template_id_yaml
+task: polymath_id_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Indonesian - Medium"
+  difficulty: medium

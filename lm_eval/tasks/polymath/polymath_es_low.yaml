@@ -1,0 +1,7 @@
+include: _default_template_es_yaml
+task: polymath_es_low
+test_split: low
+
+metadata:
+  description: "PolyMath Spanish - Low"
+  difficulty: low

@@ -1,0 +1,7 @@
+include: _default_template_id_yaml
+task: polymath_id_high
+test_split: high
+
+metadata:
+  description: "PolyMath Indonesian - High"
+  difficulty: high

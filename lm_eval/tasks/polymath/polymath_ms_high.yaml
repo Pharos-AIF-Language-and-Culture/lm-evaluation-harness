@@ -1,0 +1,7 @@
+include: _default_template_ms_yaml
+task: polymath_ms_high
+test_split: high
+
+metadata:
+  description: "PolyMath Malay - High"
+  difficulty: high

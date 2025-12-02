@@ -1,0 +1,7 @@
+include: _default_template_zh_yaml
+task: polymath_zh_low
+test_split: low
+
+metadata:
+  description: "PolyMath Chinese - Low"
+  difficulty: low

@@ -1,0 +1,7 @@
+include: _default_template_sw_yaml
+task: polymath_sw_high
+test_split: high
+
+metadata:
+  description: "PolyMath Swahili - High"
+  difficulty: high

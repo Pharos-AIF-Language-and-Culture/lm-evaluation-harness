@@ -1,0 +1,7 @@
+include: _default_template_ru_yaml
+task: polymath_ru_high
+test_split: high
+
+metadata:
+  description: "PolyMath Russian - High"
+  difficulty: high

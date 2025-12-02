@@ -1,0 +1,7 @@
+include: _default_template_th_yaml
+task: polymath_th_high
+test_split: high
+
+metadata:
+  description: "PolyMath Thai - High"
+  difficulty: high

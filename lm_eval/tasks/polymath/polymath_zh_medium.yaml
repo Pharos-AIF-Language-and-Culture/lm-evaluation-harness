@@ -1,0 +1,7 @@
+include: _default_template_zh_yaml
+task: polymath_zh_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Chinese - Medium"
+  difficulty: medium

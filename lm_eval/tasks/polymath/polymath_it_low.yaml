@@ -1,0 +1,7 @@
+include: _default_template_it_yaml
+task: polymath_it_low
+test_split: low
+
+metadata:
+  description: "PolyMath Italian - Low"
+  difficulty: low

@@ -1,0 +1,7 @@
+include: _default_template_es_yaml
+task: polymath_es_top
+test_split: top
+
+metadata:
+  description: "PolyMath Spanish - Top"
+  difficulty: top

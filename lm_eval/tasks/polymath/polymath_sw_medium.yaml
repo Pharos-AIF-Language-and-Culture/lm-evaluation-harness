@@ -1,0 +1,7 @@
+include: _default_template_sw_yaml
+task: polymath_sw_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Swahili - Medium"
+  difficulty: medium

@@ -1,0 +1,7 @@
+include: _default_template_ru_yaml
+task: polymath_ru_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Russian - Medium"
+  difficulty: medium

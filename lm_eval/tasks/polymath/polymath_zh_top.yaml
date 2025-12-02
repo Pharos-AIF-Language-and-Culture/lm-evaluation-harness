@@ -1,0 +1,7 @@
+include: _default_template_zh_yaml
+task: polymath_zh_top
+test_split: top
+
+metadata:
+  description: "PolyMath Chinese - Top"
+  difficulty: top

@@ -1,0 +1,7 @@
+include: _default_template_pt_yaml
+task: polymath_pt_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Portuguese - Medium"
+  difficulty: medium

@@ -1,0 +1,6 @@
+group: polymath_pt
+task:
+  - polymath_pt_top
+  - polymath_pt_high
+  - polymath_pt_medium
+  - polymath_pt_low

@@ -1,0 +1,7 @@
+include: _default_template_id_yaml
+task: polymath_id_low
+test_split: low
+
+metadata:
+  description: "PolyMath Indonesian - Low"
+  difficulty: low

@@ -1,0 +1,7 @@
+include: _default_template_it_yaml
+task: polymath_it_medium
+test_split: medium
+
+metadata:
+  description: "PolyMath Italian - Medium"
+  difficulty: medium

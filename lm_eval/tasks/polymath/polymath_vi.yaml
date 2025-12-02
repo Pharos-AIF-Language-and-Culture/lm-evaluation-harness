@@ -1,0 +1,6 @@
+group: polymath_vi
+task:
+  - polymath_vi_top
+  - polymath_vi_high
+  - polymath_vi_medium
+  - polymath_vi_low

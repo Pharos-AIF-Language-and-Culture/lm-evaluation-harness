@@ -1,0 +1,7 @@
+include: _default_template_de_yaml
+task: polymath_de_top
+test_split: top
+
+metadata:
+  description: "PolyMath German - Top"
+  difficulty: top

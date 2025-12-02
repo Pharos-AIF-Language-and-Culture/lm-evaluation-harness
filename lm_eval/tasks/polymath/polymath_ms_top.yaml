@@ -1,0 +1,7 @@
+include: _default_template_ms_yaml
+task: polymath_ms_top
+test_split: top
+
+metadata:
+  description: "PolyMath Malay - Top"
+  difficulty: top

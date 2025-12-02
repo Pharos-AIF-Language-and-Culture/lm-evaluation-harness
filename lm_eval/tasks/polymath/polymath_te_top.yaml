@@ -1,0 +1,7 @@
+include: _default_template_te_yaml
+task: polymath_te_top
+test_split: top
+
+metadata:
+  description: "PolyMath Telugu - Top"
+  difficulty: top

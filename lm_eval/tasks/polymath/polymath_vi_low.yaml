@@ -1,0 +1,7 @@
+include: _default_template_vi_yaml
+task: polymath_vi_low
+test_split: low
+
+metadata:
+  description: "PolyMath Vietnamese - Low"
+  difficulty: low

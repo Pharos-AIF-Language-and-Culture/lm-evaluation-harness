@@ -1,0 +1,7 @@
+include: _default_template_ja_yaml
+task: polymath_ja_top
+test_split: top
+
+metadata:
+  description: "PolyMath Japanese - Top"
+  difficulty: top

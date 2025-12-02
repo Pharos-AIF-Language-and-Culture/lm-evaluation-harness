@@ -1,0 +1,24 @@
+dataset_path: Qwen/PolyMath
+dataset_name: ar
+output_type: generate_until
+
+doc_to_text: "{{question}}\nملاحظة: يُرجى وضع الإجابة في $\boxed{}$."
+doc_to_target: "{{answer}}"
+
+process_results: !function utils.process_results
+
+generation_kwargs:
+  until:
+    - "\n\n"
+  max_gen_toks: 512
+  do_sample: false
+  temperature: 0.0
+
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+
+metadata:
+  version: 1.0
+  language: ar

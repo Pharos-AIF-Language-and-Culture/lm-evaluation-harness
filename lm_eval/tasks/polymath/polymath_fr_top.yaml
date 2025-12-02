@@ -1,0 +1,7 @@
+include: _default_template_fr_yaml
+task: polymath_fr_top
+test_split: top
+
+metadata:
+  description: "PolyMath French - Top"
+  difficulty: top
