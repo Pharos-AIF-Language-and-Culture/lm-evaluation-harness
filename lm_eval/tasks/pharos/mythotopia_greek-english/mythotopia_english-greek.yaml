@@ -5,7 +5,7 @@ output_type: generate_until
 test_split: default
 num_fewshot: 0
 
-doc_to_text: "Translate the following text from English to Greek:\n\English: {{en}}\nGreek:"
+doc_to_text: "Translate the following text from English to Greek:\nEnglish: {{en}}\nGreek:"
 doc_to_target: "{{el}}"
 
 metric_list:
