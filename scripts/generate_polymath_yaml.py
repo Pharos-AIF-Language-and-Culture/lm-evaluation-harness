@@ -9,7 +9,7 @@ from pathlib import Path
 # SETTINGS
 # =============================================================================
 
-SCRIPT_DIR = Path("/Users/giorgosfilandrianos/llm-harness/lm-evaluation-harness/lm_eval/tasks/polymath")
+SCRIPT_DIR = Path("../lm_eval/tasks/pharos/polymath")
 
 LANGUAGES = {
     "en": ("English", "Note: Please put the final answer in the $\\boxed{}$."),
