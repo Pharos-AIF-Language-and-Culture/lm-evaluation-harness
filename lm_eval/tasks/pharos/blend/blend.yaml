@@ -1,0 +1,21 @@
+group: blend
+task:
+- blend_saq_dz
+- blend_saq_as
+- blend_saq_az
+- blend_saq_cn
+- blend_saq_et
+- blend_saq_gr
+- blend_saq_id
+- blend_saq_ir
+- blend_saq_mx
+- blend_saq_kp
+- blend_saq_ng
+- blend_saq_kr
+- blend_saq_es
+- blend_saq_gb
+- blend_saq_us
+- blend_saq_jb
+metadata:
+  version: '1.0'
+  description: BLEnD short-answer group across 16 regions (raw JSON loader)

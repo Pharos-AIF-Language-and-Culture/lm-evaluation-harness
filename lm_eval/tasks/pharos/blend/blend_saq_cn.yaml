@@ -1,0 +1,24 @@
+task: blend_saq_cn
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    validation: https://huggingface.co/datasets/nayeon212/BLEnD/resolve/main/data/annotations_hf/China_data.json
+validation_split: validation
+output_type: generate_until
+doc_to_text: 'Question: {{ en_question }}
+
+  Answer:'
+doc_to_target: '{{ annotations[0]["en_answers"][0] if annotations and annotations[0].get("en_answers")
+  else '''' }}'
+generation_kwargs:
+  until:
+  - '
+
+    '
+metric_list:
+- metric: exact_match
+  aggregation: mean
+  higher_is_better: true
+metadata:
+  version: '1.0'
+  description: BLEnD SAQ annotations (raw JSON) for China
