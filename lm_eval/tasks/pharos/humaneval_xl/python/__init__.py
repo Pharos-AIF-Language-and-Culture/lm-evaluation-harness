@@ -1,0 +1,3 @@
+TASKS = {
+    "humaneval_xl_python_all": ['humaneval_xl_python_english', 'humaneval_xl_python_russian', 'humaneval_xl_python_chinese', 'humaneval_xl_python_german', 'humaneval_xl_python_spanish', 'humaneval_xl_python_french', 'humaneval_xl_python_italian', 'humaneval_xl_python_portuguese', 'humaneval_xl_python_greek', 'humaneval_xl_python_hungarian', 'humaneval_xl_python_dutch', 'humaneval_xl_python_finnish', 'humaneval_xl_python_indonesian', 'humaneval_xl_python_turkish', 'humaneval_xl_python_arabic', 'humaneval_xl_python_vietnamese', 'humaneval_xl_python_bulgarian', 'humaneval_xl_python_persian', 'humaneval_xl_python_malay', 'humaneval_xl_python_hebrew', 'humaneval_xl_python_estonian', 'humaneval_xl_python_tagalog', 'humaneval_xl_python_afrikaans']
+}
