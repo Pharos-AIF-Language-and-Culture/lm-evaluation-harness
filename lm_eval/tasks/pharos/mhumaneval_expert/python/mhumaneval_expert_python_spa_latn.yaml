@@ -1,0 +1,35 @@
+task: mhumaneval_expert_python_spa_latn
+task_alias: mHumanEval-Expert (Spanish)
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    train: https://raw.githubusercontent.com/mraihan-gmu/mHumanEval-Benchmark/main/mHuamnEval-Expert/Human_Expert_spa_Latn.json
+test_split: train
+process_docs: !function ../utils.process_docs
+unsafe_code: true
+output_type: generate_until
+doc_to_text: "{{prompt}}"
+doc_to_target: "{{test}}\ncheck({{entry_point}})"
+metric_list:
+  - metric: !function ../../../humaneval/utils.pass_at_k
+    aggregation: mean
+    higher_is_better: true
+    k: [1]
+generation_kwargs:
+  until:
+    - "\nclass"
+    - "\ndef"
+    - "\n#"
+    - "\nif"
+    - "\nprint"
+  max_gen_toks: 1024
+  do_sample: false
+repeats: 1
+num_fewshot: 0
+filter_list:
+  - name: "create_test"
+    filter:
+      - function: "custom"
+        filter_fn: !function ../../../humaneval/utils.build_predictions
+metadata:
+  version: 1.0
