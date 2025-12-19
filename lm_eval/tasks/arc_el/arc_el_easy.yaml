@@ -1,0 +1,23 @@
+tag:
+  - ilsp_arc_greek
+task: arc_el_easy
+dataset_path: ilsp/arc_greek
+dataset_name: ARC-Easy
+output_type: multiple_choice
+training_split: train
+validation_split: test
+test_split: test
+doc_to_text: "Ερώτηση: {{question}}\nΑπάντηση:"
+doc_to_target: "{{choices.label.index(answerKey)}}"
+doc_to_choice: "{{choices.text}}"
+should_decontaminate: true
+doc_to_decontamination_query: "Ερώτηση: {{question}}\nΑπάντηση:"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
