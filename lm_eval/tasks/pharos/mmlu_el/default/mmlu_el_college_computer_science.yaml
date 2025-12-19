@@ -1,0 +1,8 @@
+"dataset_name": "college_computer_science"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με πανεπιστημιακή επιστήμη υπολογιστών.\n\
+  \n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_stem_tasks"
+"task": "mmlu_el_college_computer_science"
+"task_alias": "college computer science"

@@ -1,0 +1,7 @@
+"dataset_name": "electrical_engineering"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με ηλεκτρολογική μηχανική.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_stem_tasks"
+"task": "mmlu_el_electrical_engineering"
+"task_alias": "electrical engineering"

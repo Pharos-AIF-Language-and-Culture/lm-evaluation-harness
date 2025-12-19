@@ -1,0 +1,6 @@
+"dataset_name": "computer_security"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με ασφάλεια υπολογιστών.\n\n"
+"include": "_continuation_template_yaml"
+"tag": "mmlu_el_stem_continuation"
+"task": "mmlu_el_computer_security_continuation"

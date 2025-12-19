@@ -1,0 +1,6 @@
+"dataset_name": "high_school_geography"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με σχολική γεωγραφία.\n\n"
+"include": "_continuation_template_yaml"
+"tag": "mmlu_el_social_sciences_continuation"
+"task": "mmlu_el_high_school_geography_continuation"

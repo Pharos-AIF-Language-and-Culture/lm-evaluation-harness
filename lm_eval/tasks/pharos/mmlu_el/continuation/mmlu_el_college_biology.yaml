@@ -1,0 +1,6 @@
+"dataset_name": "college_biology"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με πανεπιστημιακή βιολογία.\n\n"
+"include": "_continuation_template_yaml"
+"tag": "mmlu_el_stem_continuation"
+"task": "mmlu_el_college_biology_continuation"

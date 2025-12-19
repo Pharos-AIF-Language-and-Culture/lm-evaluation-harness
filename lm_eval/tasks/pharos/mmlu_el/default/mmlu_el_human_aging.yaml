@@ -1,0 +1,7 @@
+"dataset_name": "human_aging"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με ανθρώπινη γήρανση.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_other_tasks"
+"task": "mmlu_el_human_aging"
+"task_alias": "human aging"

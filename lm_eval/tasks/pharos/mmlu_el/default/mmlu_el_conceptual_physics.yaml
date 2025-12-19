@@ -1,0 +1,7 @@
+"dataset_name": "conceptual_physics"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με έννοιες φυσικής.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_stem_tasks"
+"task": "mmlu_el_conceptual_physics"
+"task_alias": "conceptual physics"

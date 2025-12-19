@@ -1,0 +1,7 @@
+"dataset_name": "formal_logic"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με τυπική λογική.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_humanities_tasks"
+"task": "mmlu_el_formal_logic"
+"task_alias": "formal logic"

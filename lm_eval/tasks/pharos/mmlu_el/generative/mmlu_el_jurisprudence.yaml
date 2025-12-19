@@ -1,0 +1,7 @@
+"dataset_name": "jurisprudence"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με νομολογία.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_humanities_generative"
+"task": "mmlu_el_jurisprudence_generative"
+"task_alias": "jurisprudence"
