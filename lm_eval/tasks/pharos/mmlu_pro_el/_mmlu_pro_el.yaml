@@ -1,0 +1,23 @@
+group: mmlu_pro_el
+task:
+  - mmlu_pro_el_biology
+  - mmlu_pro_el_business
+  - mmlu_pro_el_chemistry
+  - mmlu_pro_el_computer_science
+  - mmlu_pro_el_economics
+  - mmlu_pro_el_engineering
+  - mmlu_pro_el_health
+  - mmlu_pro_el_history
+  - mmlu_pro_el_law
+  - mmlu_pro_el_math
+  - mmlu_pro_el_other
+  - mmlu_pro_el_philosophy
+  - mmlu_pro_el_physics
+  - mmlu_pro_el_psychology
+aggregate_metric_list:
+  - aggregation: mean
+    metric: exact_match
+    weight_by_size: true
+    filter_list: custom-extract
+metadata:
+  version: 2.0
