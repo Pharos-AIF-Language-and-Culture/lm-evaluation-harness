@@ -14,7 +14,7 @@
 
 """Registry of all instructions."""
 
-from lm_eval.tasks.ifeval import instructions
+from lm_eval.tasks.pharos.ifeval_el import instructions
 
 
 _KEYWORD = "keywords:"
