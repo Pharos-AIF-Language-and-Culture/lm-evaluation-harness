@@ -1,0 +1,6 @@
+group: amg
+task:
+- amg_ell_grc
+- amg_grc_ell
+metadata:
+  version: 2
