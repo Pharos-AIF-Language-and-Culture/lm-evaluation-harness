@@ -517,11 +517,17 @@ def configure_pad_token(
     Raises:
         AssertionError: If the tokenizer is of type RWKVWorldTokenizer or Rwkv5Tokenizer and the padding token id is not 0.
     """
-    if tokenizer.pad_token:
+    if (
+        getattr(tokenizer, "pad_token", None) or getattr(tokenizer, "pad_token_id", None)
+    ):
         pass
-    elif tokenizer.unk_token:
+    elif (
+        hasattr(tokenizer, "unk_token") or hasattr(tokenizer, "unk_token_id")
+    ):
         tokenizer.pad_token_id = tokenizer.unk_token_id
-    elif tokenizer.eos_token:
+    elif (
+        hasattr(tokenizer, "eos_token") or hasattr(tokenizer, "eos_token_id")
+    ):
         tokenizer.pad_token_id = tokenizer.eos_token_id
     else:
         # handle special cases

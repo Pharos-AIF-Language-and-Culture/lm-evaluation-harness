@@ -41,7 +41,7 @@ try:
     from vllm.transformers_utils.tokenizer import get_tokenizer
 
     if parse_version(version("vllm")) >= parse_version("0.8.3"):
-        from vllm.entrypoints.chat_utils import resolve_hf_chat_template
+        from vllm.entrypoints.chat_utils import resolve_hf_chat_template, resolve_mistral_chat_template
 
     try:
         # Moved since vllm-project/vllm#27164
@@ -250,9 +250,12 @@ class VLLM(TemplateLM):
             else:
                 kwargs_resolve_hf_chat_template["trust_remote_code"] = trust_remote_code
 
-            self.hf_chat_template = resolve_hf_chat_template(
-                **kwargs_resolve_hf_chat_template
-            )
+            if self._check_if_mistral:
+                self.hf_chat_template = resolve_mistral_chat_template(**kwargs_resolve_hf_chat_template)
+            else:
+                self.hf_chat_template = resolve_hf_chat_template(
+                    **kwargs_resolve_hf_chat_template
+                )           
         else:
             self.hf_chat_template = None
 
@@ -306,6 +309,12 @@ class VLLM(TemplateLM):
     @property
     def max_gen_toks(self):
         return self._max_gen_toks
+
+    def _check_if_mistral(self):
+        if parse_version(version("vllm")) >= parse_version("0.9.0"):
+            return self.tokenizer.__class__.__name__ == "MistralTokenizer"
+        else:
+            return False
 
     def apply_chat_template(
         self, chat_history: List[Dict[str, str]], add_generation_prompt: bool = True
@@ -373,21 +382,24 @@ class VLLM(TemplateLM):
         # If the text already has BOS, do not add special tokens (to avoid double BOS).
         if strs_has:
             kwargs_off = {**special_tokens_kwargs, "add_special_tokens": False}
+            if not self._check_if_mistral():
+                kwargs_off["return_attention_mask"] = False
             enc_has = (
                 self.tokenizer(
                     strs_has,
-                    return_attention_mask=False,
                     **kwargs_off,
                 ).input_ids
                 if strs_has
                 else []
             )
 
+        kwargs_on = {**special_tokens_kwargs}
+        if not self._check_if_mistral():
+            kwargs_on["return_attention_mask"] = False
         enc_not = (
             self.tokenizer(
                 strs_not,
-                return_attention_mask=False,
-                **special_tokens_kwargs,
+                **kwargs_on
             ).input_ids
             if strs_not
             else []
