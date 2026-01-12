@@ -8,6 +8,10 @@ doc_to_text: "\
   {% set prompt_qa = 'Μετάφρασε το κείμενο από τα Αρχαία Ελληνικά στα Νέα Ελληνικά.\n\n' %}\
   {{ prompt_qa ~ 'Αρχαία Ελληνικά: ' ~ ell ~ '\n\nΝέα Ελληνικά:\n' }}"
 doc_to_target: "{{ell}}"
+generation_kwargs:
+  until:
+    - "\n"
+  max_gen_toks: 300
 metric_list:
   - metric: !function metrics.bleu
     aggregation: !function metrics.agg_bleu

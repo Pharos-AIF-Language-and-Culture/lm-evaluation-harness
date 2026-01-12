@@ -1,6 +1,0 @@
-group: mmlu_el
-task:
-- mmlu_el_stem
-- mmlu_el_other
-- mmlu_el_social_sciences
-- mmlu_el_humanities
