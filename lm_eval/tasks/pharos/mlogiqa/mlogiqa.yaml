@@ -1,0 +1,16 @@
+group: mlogiqa
+task:
+  - mlogiqa_ar
+  - mlogiqa_es
+  - mlogiqa_fr
+  - mlogiqa_ja
+  - mlogiqa_ko
+  - mlogiqa_pt
+  - mlogiqa_th
+  - mlogiqa_vi
+  - mlogiqa_en
+  - mlogiqa_zh
+
+metadata:
+  version: 1.0
+  description: "mLogiQA from Qwen/P-MMEval across 10 languages."

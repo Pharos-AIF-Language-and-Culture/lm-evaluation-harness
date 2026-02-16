@@ -1,0 +1,10 @@
+include: _default_template_yaml
+task: mlogiqa_fr
+task_alias: mLogiQA (French)
+dataset_kwargs:
+  data_files:
+    validation: https://huggingface.co/datasets/Qwen/P-MMEval/resolve/47bb647f35fdd6f5374826b3f5d4f84eb5b5afce/mlogiqa/val/fr.jsonl
+    test: https://huggingface.co/datasets/Qwen/P-MMEval/resolve/47bb647f35fdd6f5374826b3f5d4f84eb5b5afce/mlogiqa/test/fr.jsonl
+metadata:
+  language: fr
+  language_name: French

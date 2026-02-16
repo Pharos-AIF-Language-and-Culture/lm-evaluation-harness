@@ -1,0 +1,29 @@
+dataset_path: json
+output_type: multiple_choice
+training_split: null
+validation_split: validation
+test_split: test
+fewshot_split: validation
+num_fewshot: 0
+doc_to_text: |
+  Passage: {{context}}
+  Question: {{question}}
+  Choices:
+  A. {{options[0]}}
+  B. {{options[1]}}
+  C. {{options[2]}}
+  D. {{options[3]}}
+  Answer:
+doc_to_choice: "{{options}}"
+doc_to_target: "answer"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.1
+  dataset: Qwen/P-MMEval
+  subset: mlogiqa

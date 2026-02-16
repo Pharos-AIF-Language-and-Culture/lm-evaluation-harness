@@ -1,0 +1,10 @@
+include: _default_template_yaml
+task: mlogiqa_es
+task_alias: mLogiQA (Spanish)
+dataset_kwargs:
+  data_files:
+    validation: https://huggingface.co/datasets/Qwen/P-MMEval/resolve/47bb647f35fdd6f5374826b3f5d4f84eb5b5afce/mlogiqa/val/es.jsonl
+    test: https://huggingface.co/datasets/Qwen/P-MMEval/resolve/47bb647f35fdd6f5374826b3f5d4f84eb5b5afce/mlogiqa/test/es.jsonl
+metadata:
+  language: es
+  language_name: Spanish
