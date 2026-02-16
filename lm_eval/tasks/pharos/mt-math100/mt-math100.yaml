@@ -1,0 +1,60 @@
+# Multilingual Math-100 (MT-MATH100)
+# Dataset: local parquet (MCLM MT-MATH100)
+
+group: mt-math100
+task:
+  - mt-math100_af
+  - mt-math100_ar
+  - mt-math100_bg
+  - mt-math100_bn
+  - mt-math100_ca
+  - mt-math100_cs
+  - mt-math100_cy
+  - mt-math100_da
+  - mt-math100_de
+  - mt-math100_el
+  - mt-math100_en
+  - mt-math100_es
+  - mt-math100_et
+  - mt-math100_fa
+  - mt-math100_fi
+  - mt-math100_fr
+  - mt-math100_gu
+  - mt-math100_he
+  - mt-math100_hi
+  - mt-math100_hr
+  - mt-math100_hu
+  - mt-math100_id
+  - mt-math100_it
+  - mt-math100_ja
+  - mt-math100_kn
+  - mt-math100_ko
+  - mt-math100_lt
+  - mt-math100_lv
+  - mt-math100_mk
+  - mt-math100_ml
+  - mt-math100_mr
+  - mt-math100_ne
+  - mt-math100_nl
+  - mt-math100_no
+  - mt-math100_pa
+  - mt-math100_pl
+  - mt-math100_pt
+  - mt-math100_ro
+  - mt-math100_ru
+  - mt-math100_sk
+  - mt-math100_sl
+  - mt-math100_so
+  - mt-math100_sq
+  - mt-math100_sv
+  - mt-math100_sw
+  - mt-math100_ta
+  - mt-math100_te
+  - mt-math100_th
+  - mt-math100_tl
+  - mt-math100_tr
+  - mt-math100_uk
+  - mt-math100_ur
+  - mt-math100_vi
+  - mt-math100_zh_cn
+  - mt-math100_zh_tw
