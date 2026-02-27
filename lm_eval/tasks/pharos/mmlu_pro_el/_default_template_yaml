@@ -1,0 +1,31 @@
+dataset_path: ilsp/MMLU-Pro_greek
+test_split: test
+fewshot_split: test
+fewshot_config:
+  sampler: first_n
+  doc_to_text: !function utils.fewshot_to_text
+  doc_to_target: ""
+output_type: generate_until
+doc_to_text: !function utils.doc_to_text
+doc_to_target: answer
+filter_list:
+  - name: "custom-extract"
+    filter:
+      - function: "regex"
+        regex_pattern: 'απάντηση είναι \(?([AΑBΒCDEFGHIJ])\)?'
+      - function: "take_first"
+generation_kwargs:
+  until:
+    - "Ερώτηση:"
+  max_gen_toks: 2048
+  do_sample: false
+  temperature: 0.0
+num_fewshot: 5
+metric_list:
+  - metric: !function utils.exact_match_greek_char_fix
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+metadata:
+  version: 2.1

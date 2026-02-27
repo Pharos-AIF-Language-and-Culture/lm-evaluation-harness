@@ -1,0 +1,8 @@
+group: arc_el
+task:
+- arc_el_challenge
+- arc_el_easy
+aggregate_metric_list:
+  - metric: acc
+metadata:
+  version: 2

@@ -1,0 +1,7 @@
+"dataset_name": "nutrition"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με διατροφή.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_other_tasks"
+"task": "mmlu_el_nutrition"
+"task_alias": "nutrition"

@@ -1,0 +1,6 @@
+group: wmt24_el_split
+task:
+- wmt24_en_el
+- wmt24_el_en
+metadata:
+  version: 2

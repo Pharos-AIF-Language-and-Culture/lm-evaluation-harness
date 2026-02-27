@@ -1,0 +1,16 @@
+task: wmt24_en_el
+dataset_path: google/wmt24pp
+dataset_name: en-el_GR
+training_split: train
+validation_split: train
+output_type: generate_until
+doc_to_text: "\
+  {% set prompt_qa = 'Μετάφρασε το κείμενο απο τα Αγγλικά στα Ελληνικά.\n\n' %}\
+  {{ prompt_qa ~ 'Αγγλικά: ' ~ source ~ '\n\nΕλληνικά:\n' }}"
+doc_to_target: "{{target}}"
+metric_list:
+  - metric: !function metrics.bleu
+    aggregation: !function metrics.agg_bleu
+    higher_is_better: true
+metadata:
+  version: 1.0

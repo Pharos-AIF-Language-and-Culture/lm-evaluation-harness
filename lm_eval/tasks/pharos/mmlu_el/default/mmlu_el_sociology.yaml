@@ -1,0 +1,7 @@
+"dataset_name": "sociology"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με κοινωνιολογία.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_social_sciences_tasks"
+"task": "mmlu_el_sociology"
+"task_alias": "sociology"

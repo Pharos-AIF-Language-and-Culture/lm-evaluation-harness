@@ -1,0 +1,27 @@
+# This file defines the "pharos_benchmarks" as a collection of other tasks.
+group: iel_base_model_evals
+
+metadata:
+  version: 1.0
+
+task:
+  # ### Greek-specific datasets ###
+  - arc_el
+  - mmlu_el
+  - hellaswag_el
+  - truthfulqa_el
+  - amg
+  - mgsm_greek
+  - medical_mcqa_greek
+  - mcqa_greek_asep
+  - belebele_ell_Grek
+  - include_base_44_greek
+  # ### English-specific datasets ###
+  - arc_challenge
+  - arc_easy
+  - mmlu
+  - hellaswag
+  - truthfulqa
+  - gsm8k
+  - winogrande
+

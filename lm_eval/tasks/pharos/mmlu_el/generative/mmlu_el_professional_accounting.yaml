@@ -1,0 +1,7 @@
+"dataset_name": "professional_accounting"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με λογιστική.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_other_generative"
+"task": "mmlu_el_professional_accounting_generative"
+"task_alias": "professional accounting"

@@ -1,0 +1,20 @@
+task: amg_grc_ell
+dataset_path: ilsp/ancient-modern_greek_translations
+dataset_name: default
+training_split: null
+validation_split: test
+output_type: generate_until
+doc_to_text: "\
+  {% set prompt_qa = 'Μετάφρασε το κείμενο από τα Αρχαία Ελληνικά στα Νέα Ελληνικά.\n\n' %}\
+  {{ prompt_qa ~ 'Αρχαία Ελληνικά: ' ~ ell ~ '\n\nΝέα Ελληνικά:\n' }}"
+doc_to_target: "{{ell}}"
+generation_kwargs:
+  until:
+    - "\n"
+  max_gen_toks: 300
+metric_list:
+  - metric: !function metrics.bleu
+    aggregation: !function metrics.agg_bleu
+    higher_is_better: true
+metadata:
+  version: 1.0

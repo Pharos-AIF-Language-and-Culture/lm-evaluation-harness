@@ -4,8 +4,8 @@ dataset_name: null
 test_split: default
 num_fewshot: 0
 output_type: multiple_choice   
-doc_to_text: "Question: {{question}}\nAnswer:"
-doc_to_choice: "choices"
+doc_to_text: "Ερώτηση: {{question}}\n{{choices | join('\n')}}\nΑπάντηση:"
+doc_to_choice: ["α", "β", "γ", "δ"]
 doc_to_target: "answer"  
 metric_list:
   - metric: acc

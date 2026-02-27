@@ -1,0 +1,6 @@
+"dataset_name": "high_school_mathematics"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με μαθηματικά λυκείου.\n\n"
+"include": "_continuation_template_yaml"
+"tag": "mmlu_el_stem_continuation"
+"task": "mmlu_el_high_school_mathematics_continuation"

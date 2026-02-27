@@ -1,0 +1,7 @@
+"dataset_name": "elementary_mathematics"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με βασικά μαθηματικά.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_stem_tasks"
+"task": "mmlu_el_elementary_mathematics"
+"task_alias": "elementary mathematics"

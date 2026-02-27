@@ -1,0 +1,7 @@
+"dataset_name": "machine_learning"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με μηχανική μάθηση.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_stem_tasks"
+"task": "mmlu_el_machine_learning"
+"task_alias": "machine learning"

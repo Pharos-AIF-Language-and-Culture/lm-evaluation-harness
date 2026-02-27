@@ -1,0 +1,7 @@
+"dataset_name": "high_school_computer_science"
+"description": "Οι ακόλουθες ερωτήσεις πολλαπλής επιλογής (που παρουσιάζονται μαζί\
+  \ με τις απαντήσεις τους) έχουν να κάνουν με σχολική επιστήμη υπολογιστών.\n\n"
+"include": "_default_template_yaml"
+"tag": "mmlu_el_stem_tasks"
+"task": "mmlu_el_high_school_computer_science"
+"task_alias": "high school computer science"
