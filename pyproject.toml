@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lm_eval"
-version = "0.4.9.2"
+version = "0.4.11"
 authors = [
     { name = "EleutherAI", email = "contact@eleuther.ai" }
 ]
@@ -19,6 +19,7 @@ requires-python = ">=3.10"
 license = { text = "MIT" }
 dependencies = [
     "datasets>=2.16.0",
+    "numpy",
     "evaluate>=0.4.0",
     "jinja2",
     "jsonlines",
@@ -31,6 +32,7 @@ dependencies = [
     "dill",
     "word2number",
     "more_itertools",
+    "typing_extensions"
 ]
 
 [tool.setuptools.packages.find]
@@ -61,12 +63,11 @@ ibm_watsonx_ai = ["ibm_watsonx_ai>=1.1.22", "python-dotenv"]
 # mamba = ["mamba_ssm", "causal-conv1d==1.0.2", "torch"]
 optimum = ["optimum[openvino]"]
 sparsify = ["sparsify"]
-sae_lens = ["sae_lens"]
+#sae_lens = ["sae_lens"] #  sae-lens requires datasets < 3.0
 # Task specific dependencies
 acpbench = ["lark>=1.1.9", "tarski[clingo]==0.8.2", "pddl==0.4.2", "kstar-planner==1.4.2"]
 audiolm_qwen = ["librosa", "soundfile"]
 dev = ["pytest", "pytest-cov", "pytest-xdist", "pre-commit", "requests", "aiohttp", "tenacity", "tqdm", "tiktoken", "sentencepiece", "ruff"]
-hf_transfer = ["hf_transfer"]
 ifeval = ["langdetect", "immutabledict", "nltk>=3.9.1"]
 japanese_leaderboard = ["emoji==2.14.0", "neologdn==0.5.3", "fugashi[unidic-lite]", "rouge_score>=0.1.2"]
 longbench = ["jieba", "fuzzywuzzy", "rouge"]
@@ -123,6 +124,8 @@ plugins.md029.allow_extended_start_values = true # ol-prefix
 plugins.md034.enabled = false # no-bare-urls
 
 [tool.ruff.lint]
+preview = true
+explicit-preview-rules = true
 extend-select = [
     "B",      # flake8-bugbear
     "C419",   # unnecessary-comprehension-in-call
@@ -136,6 +139,8 @@ extend-select = [
     "SIM",    # flake8-simplify
     "UP",     # pyupgrade
     "W605",   # invalid-escape-sequence
+    "S", # flake8-bandit,
+    "S307", # part of S but exact code to enable preview
 ]
 fixable = [
     "F401",   # unused-import
@@ -162,6 +167,7 @@ ignore = [
     "E731",   # lambda-assignment
     "E741",   # ambiguous-variable-name
     "SIM118", # dict-in-keys
+    "S101",   # assert-used
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
