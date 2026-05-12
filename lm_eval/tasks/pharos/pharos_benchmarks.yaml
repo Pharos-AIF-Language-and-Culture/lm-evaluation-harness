@@ -11,6 +11,7 @@ task:
   # We use a pharos specific configuration because we may not need all of their languages, etc.
   - pharos_global_mmlu
   - pharos_belebele
+  - pharos_global_piqa_eu
   # ### 2. Other multilingual datasets with no tasks defined in lm-evaluation-harness
   # - mmlux
 

@@ -1,0 +1,26 @@
+group: pharos_global_piqa_prompted
+metadata:
+  version: 1.0
+  description: "A subset of Global PIQA languages (official EU languages) using the prompted (generation) format."
+
+task:
+  - global_piqa_prompted_bul_cyrl
+  - global_piqa_prompted_hrv_latn
+  - global_piqa_prompted_ces_latn
+  - global_piqa_prompted_nld_latn
+  - global_piqa_prompted_eng_latn
+  - global_piqa_prompted_ekk_latn
+  - global_piqa_prompted_fin_latn
+  - global_piqa_prompted_fra_latn_fran
+  - global_piqa_prompted_deu_latn
+  - global_piqa_prompted_ell_grek
+  - global_piqa_prompted_hun_latn
+  - global_piqa_prompted_ita_latn
+  - global_piqa_prompted_lit_latn
+  - global_piqa_prompted_pol_latn
+  - global_piqa_prompted_por_latn_port
+  - global_piqa_prompted_ron_latn
+  - global_piqa_prompted_slk_latn
+  - global_piqa_prompted_slv_latn
+  - global_piqa_prompted_spa_latn_spai
+  - global_piqa_prompted_swe_latn

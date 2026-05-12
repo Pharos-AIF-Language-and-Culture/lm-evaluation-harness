@@ -1,0 +1,8 @@
+group: pharos_global_piqa_eu
+metadata:
+  version: 1.0
+  description: "The Pharos Global PIQA benchmark suite (Official EU Languages), including both completions and prompted variants."
+
+task:
+  - pharos_global_piqa_completions
+  - pharos_global_piqa_prompted

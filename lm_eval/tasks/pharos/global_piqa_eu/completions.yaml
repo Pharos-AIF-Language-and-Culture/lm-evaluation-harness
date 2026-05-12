@@ -1,0 +1,26 @@
+group: pharos_global_piqa_completions
+metadata:
+  version: 1.0
+  description: "A subset of Global PIQA languages (official EU languages) using the completions (likelihood) format."
+
+task:
+  - global_piqa_completions_bul_cyrl
+  - global_piqa_completions_hrv_latn
+  - global_piqa_completions_ces_latn
+  - global_piqa_completions_nld_latn
+  - global_piqa_completions_eng_latn
+  - global_piqa_completions_ekk_latn
+  - global_piqa_completions_fin_latn
+  - global_piqa_completions_fra_latn_fran
+  - global_piqa_completions_deu_latn
+  - global_piqa_completions_ell_grek
+  - global_piqa_completions_hun_latn
+  - global_piqa_completions_ita_latn
+  - global_piqa_completions_lit_latn
+  - global_piqa_completions_pol_latn
+  - global_piqa_completions_por_latn_port
+  - global_piqa_completions_ron_latn
+  - global_piqa_completions_slk_latn
+  - global_piqa_completions_slv_latn
+  - global_piqa_completions_spa_latn_spai
+  - global_piqa_completions_swe_latn
