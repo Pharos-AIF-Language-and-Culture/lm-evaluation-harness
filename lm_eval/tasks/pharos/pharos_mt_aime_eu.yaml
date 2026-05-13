@@ -1,0 +1,28 @@
+group: pharos_mt_aime_eu
+metadata:
+  version: 1.0
+  description: "A subset of MT-AIME languages (official EU languages) for the Pharos project."
+
+task:
+  - mt-aime_bg
+  - mt-aime_cs
+  - mt-aime_da
+  - mt-aime_de
+  - mt-aime_el
+  - mt-aime_en
+  - mt-aime_es
+  - mt-aime_et
+  - mt-aime_fi
+  - mt-aime_fr
+  - mt-aime_hr
+  - mt-aime_hu
+  - mt-aime_it
+  - mt-aime_lt
+  - mt-aime_lv
+  - mt-aime_nl
+  - mt-aime_pl
+  - mt-aime_pt
+  - mt-aime_ro
+  - mt-aime_sk
+  - mt-aime_sl
+  - mt-aime_sv

@@ -1,0 +1,10 @@
+group: pharos_mlogiqa_eu
+metadata:
+  version: 1.0
+  description: "A subset of mLogiQA languages (official EU languages) for the Pharos project."
+
+task:
+  - mlogiqa_en
+  - mlogiqa_es
+  - mlogiqa_fr
+  - mlogiqa_pt

@@ -1,0 +1,28 @@
+group: pharos_mt_math100_eu
+metadata:
+  version: 1.0
+  description: "A subset of MT-MATH100 languages (official EU languages) for the Pharos project."
+
+task:
+  - mt-math100_bg
+  - mt-math100_cs
+  - mt-math100_da
+  - mt-math100_de
+  - mt-math100_el
+  - mt-math100_en
+  - mt-math100_es
+  - mt-math100_et
+  - mt-math100_fi
+  - mt-math100_fr
+  - mt-math100_hr
+  - mt-math100_hu
+  - mt-math100_it
+  - mt-math100_lt
+  - mt-math100_lv
+  - mt-math100_nl
+  - mt-math100_pl
+  - mt-math100_pt
+  - mt-math100_ro
+  - mt-math100_sk
+  - mt-math100_sl
+  - mt-math100_sv
