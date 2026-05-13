@@ -386,6 +386,34 @@ lm_eval --model sglang \
 > 2. Lower KV cache pool memory usage by adjusting `mem_fraction_static` - Add to your model arguments for example `--model_args pretrained=...,mem_fraction_static=0.7`.
 > 3. Increase tensor parallel size `tp_size` (if using multiple GPUs).
 
+### Windows ML
+
+We support **Windows ML** for hardware-accelerated inference on Windows platforms. This enables evaluation on CPU, GPU, and **NPU (Neural Processing Unit)** devices.
+
+Windows ML?
+https://learn.microsoft.com/en-us/windows/ai/new-windows-ml/overview
+
+To use Windows ML, install the required dependencies:
+
+```bash
+pip install wasdk-Microsoft.Windows.AI.MachineLearning[all] wasdk-Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap onnxruntime-windowsml onnxruntime-genai-winml
+```
+
+Evaluate an ONNX Runtime GenAI LLM on NPU/GPU/CPU on Windows:
+
+```bash
+lm_eval --model winml \
+    --model_args pretrained=/path/to/onnx/model \
+    --tasks mmlu \
+    --batch_size 1
+```
+
+> [!Note]
+> The Windows ML backend is ONLY for ONNX Runtime GenAI model format. Models targeting `transformers.js` won't work. You can verify this by finding the `genai_config.json` file in the model folder.
+
+> [!Note]
+> To run an ONNX Runtime GenAI model on the target device, you MUST convert the original model to that vendor and device type. Converted models won't work / work well on other vendor or device types. To learn more on model conversion, please visit [Microsoft AI Tool Kit](https://code.visualstudio.com/docs/intelligentapps/modelconversion)
+
 ### Model APIs and Inference Servers
 
 > [!Important]
@@ -426,6 +454,7 @@ Note that for externally hosted models, configs such as `--device` which relate 
 | Neuron via AWS Inf2 (Causal LMs)                                                                                          | :heavy_check_mark:                                                                                      | `neuronx`                                           | Any decoder-only AutoModelForCausalLM supported to run on [huggingface-ami image for inferentia2](https://aws.amazon.com/marketplace/pp/prodview-gr3e6yiscria2)                                                                                                                                                                                            | `generate_until`, `loglikelihood`, `loglikelihood_rolling`                     |
 | NVIDIA NeMo                                                                                                               | :heavy_check_mark:                                                                                      | `nemo_lm`                                           | [All supported models](https://docs.nvidia.com/nemo-framework/user-guide/24.09/nemotoolkit/core/core.html#nemo-models)                                                                                                                                                                                                                                     | `generate_until`, `loglikelihood`, `loglikelihood_rolling`                     |
 | Watsonx.ai                                                                                                                | :heavy_check_mark:                                                                                      | `watsonx_llm`                                       | [Supported Watsonx.ai Engines](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-models.html?context=wx)                                                                                                                                                                                                                                 | `generate_until` `loglikelihood`                                               |
+| Windows ML                                                                                           | :heavy_check_mark:                                                                                      | `winml`                                             | [ONNX models in GenAI format](https://code.visualstudio.com/docs/intelligentapps/modelconversion)                                                                                                                                                                                                                                                                                                                                 | `generate_until`, `loglikelihood`, `loglikelihood_rolling`                     |
 | [Your local inference server!](docs/API_guide.md)                                                                         | :heavy_check_mark:                                                                                      | `local-completions` or `local-chat-completions`     | Support for OpenAI API-compatible servers, with easy customization for other APIs.                                                                                                                                                                                                                                                                         | `generate_until`, `loglikelihood`, `loglikelihood_rolling`                     |
 
 Models which do not supply logits or logprobs can be used with tasks of type `generate_until` only, while local models, or APIs that supply logprobs/logits of their prompts, can be run on all task types: `generate_until`, `loglikelihood`, `loglikelihood_rolling`, and `multiple_choice`.
@@ -669,6 +698,7 @@ These extras install dependencies required to run specific model backends:
 | ipex           | Intel IPEX backend                               |
 | optimum        | Intel OpenVINO models                            |
 | neuronx        | AWS Inferentia2 instances                        |
+| winml          | Windows ML (ONNX Runtime GenAI) - CPU/GPU/NPU    |
 | sparsify       | Sparsify model steering                          |
 | sae_lens       | SAELens model steering                           |
 
