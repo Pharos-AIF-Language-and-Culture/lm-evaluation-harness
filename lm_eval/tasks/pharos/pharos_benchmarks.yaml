@@ -31,6 +31,7 @@ task:
   - greek_civics_qa
   - mcqa_greek_asep
   - medical_mcqa_greek
+  - pharos_demosqa
   - ancient-modern_greek_translations
   - modern-ancient_greek_translations
   # - mgsm_greek

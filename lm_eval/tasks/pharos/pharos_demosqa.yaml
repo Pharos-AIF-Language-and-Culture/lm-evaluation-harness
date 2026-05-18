@@ -1,0 +1,32 @@
+# DemosQA: A Benchmark for Greek Question Answering
+#
+# Reference Paper: https://arxiv.org/pdf/2602.16811
+# Hugging Face Dataset: https://huggingface.co/datasets/IMISLab/DemosQA
+#
+# Disclaimer:
+# This task configuration ("pharos_demosqa") is prepared specifically for the Pharos
+# evaluation suite. It is customized for zero-shot multiple-choice evaluation based
+# on log-likelihood of the label tokens ["Α", "Β", "Γ", "Δ"], matching the "Instruction"
+# prompting strategy detailed in the reference paper. It does not represent an official
+# downstream integration by the original dataset authors.
+
+task: pharos_demosqa
+dataset_path: IMISLab/DemosQA
+test_split: test
+num_fewshot: 0
+output_type: multiple_choice
+doc_to_text: "Διάλεξε την καλύτερη απάντηση στην παρακάτω ερώτηση και απάντησε μόνο με το γράμμα (Α, Β, Γ ή Δ).\n\nΕρώτηση: {{question.strip()}}\nΕπιλογές:\n{{answers.strip()}}\nΑπάντηση:"
+doc_to_choice: ["Α", "Β", "Γ", "Δ"]
+doc_to_target: best_answer_index
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
+  task_type: multiple_choice
+  language: Greek
+  author: Pharos
