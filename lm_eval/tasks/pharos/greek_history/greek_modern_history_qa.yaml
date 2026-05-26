@@ -1,15 +1,15 @@
 tag:
-  - greek_civics_qa
-task: greek_civics_qa
-dataset_path: ilsp/greek_civics_qa
+  - greek_modern_history_qa
+task: greek_modern_history_qa
+dataset_path: ilsp/greek-modern-history-qa
 dataset_name: default
 output_type: generate_until
 training_split: null
-validation_split: default
-test_split: null
+validation_split: null
+test_split: test
 num_fewshot: 0
 doc_to_text: "\
-  {% set prompt_qa = 'Απάντησε στην παρακάτω ερώτηση που σχετίζεται με το μάθημα της κοινωνικής και πολιτικής αγωγής.\n\n' %}\
+  {% set prompt_qa = 'Απάντησε στην παρακάτω ερώτηση που σχετίζεται με την ελληνική νεότερη ιστορία.\n\n' %}\
   {{ prompt_qa ~ '\n\nΕρώτηση: ' ~ question ~ '\n\nΑπάντηση:\n' }}"
 doc_to_target: answer
 process_results: !function utils.process_results_gen
@@ -36,4 +36,4 @@ metric_list:
     aggregation: mean
     higher_is_better: true
 metadata:
-  version: 3.0
+  version: 1.0

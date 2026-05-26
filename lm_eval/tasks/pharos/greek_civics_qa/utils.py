@@ -1,7 +1,20 @@
-import datasets
+import re
 import numpy as np
 import sacrebleu
-from rouge_score import rouge_scorer, scoring
+from rouge_score import rouge_scorer
+
+try:
+    from bert_score import score as bert_score_fn
+    BERTSCORE_AVAILABLE = True
+except ImportError:
+    BERTSCORE_AVAILABLE = False
+
+
+class GreekTokenizer:
+    def tokenize(self, text):
+        text = text.lower()
+        # Keep English/Greek letters and numbers, discard other symbols
+        return re.findall(r'[a-z0-9\u0370-\u03ff\u1f00-\u1fff]+', text)
 
 
 ROUGE_SCORER = None
@@ -11,47 +24,54 @@ def process_results_gen(doc, results):
     completion = results[0]
     true_refs = [doc["answer"]]
 
-    # BLEU
+    # BLEU (sacrebleu with international tokenization)
     bleu_scores = [bleu([[ref]], [completion]) for ref in true_refs]
-    bleu_correct = np.nanmax(bleu_scores)
-    bleu_max = bleu_correct
+    bleu_max = np.nanmax(bleu_scores)
 
-    # ROUGE-N
-    rouge_scores = [rouge([ref], [completion]) for ref in true_refs]
-    # ROUGE-1
-    rouge1_scores = [score["rouge1"] for score in rouge_scores]
-    rouge1_correct = np.nanmax(rouge1_scores)
-    rouge1_max = rouge1_correct
-    # ROUGE-2
-    rouge2_scores = [score["rouge2"] for score in rouge_scores]
-    rouge2_correct = np.nanmax(rouge2_scores)
-    rouge2_max = rouge2_correct
-    # ROUGE-L
-    rougeL_scores = [score["rougeLsum"] for score in rouge_scores]
-    rougeL_correct = np.nanmax(rougeL_scores)
-    rougeL_max = rougeL_correct
+    # ROUGE with custom Greek-safe tokenizer
+    global ROUGE_SCORER
+    if ROUGE_SCORER is None:
+        ROUGE_SCORER = rouge_scorer.RougeScorer(
+            ["rouge1", "rouge2", "rougeLsum"], 
+            tokenizer=GreekTokenizer()
+        )
+    
+    rouge_scores = []
+    for ref in true_refs:
+        scores = ROUGE_SCORER.score(ref, completion)
+        rouge_scores.append({
+            "rouge1": scores["rouge1"].fmeasure * 100.0,
+            "rouge2": scores["rouge2"].fmeasure * 100.0,
+            "rougeL": scores["rougeLsum"].fmeasure * 100.0,
+        })
+
+    rouge1_max = np.nanmax([s["rouge1"] for s in rouge_scores])
+    rouge2_max = np.nanmax([s["rouge2"] for s in rouge_scores])
+    rougeL_max = np.nanmax([s["rougeL"] for s in rouge_scores])
+
+    # BERTScore using multilingual BERT to handle semantic similarity in Greek
+    bertscore_f1_max = 0.0
+    if BERTSCORE_AVAILABLE:
+        # P, R, F1 are returned as tensors
+        P, R, F1 = bert_score_fn(
+            [completion],
+            true_refs,
+            lang="el",
+            model_type="bert-base-multilingual-cased",
+            verbose=False,
+        )
+        bertscore_f1_max = F1.max().item()
 
     return {
-        # "bleurt_max": bleurt_max,
-        # "bleurt_acc": bleurt_acc,
-        # "bleurt_diff": bleurt_diff,
         "bleu_max": bleu_max,
         "rouge1_max": rouge1_max,
         "rouge2_max": rouge2_max,
         "rougeL_max": rougeL_max,
+        "bertscore_f1_max": bertscore_f1_max,
     }
 
 
 def bleu(refs, preds):
-    """
-    Returns `t5` style BLEU scores. See the related implementation:
-    https://github.com/google-research/text-to-text-transfer-transformer/blob/3d10afd51ba97ac29eb66ae701eca274488202f7/t5/evaluation/metrics.py#L41
-
-    :param refs:
-        A `list` of `list` of reference `str`s.
-    :param preds:
-        A `list` of predicted `str`s.
-    """
     score = sacrebleu.corpus_bleu(
         preds,
         refs,
@@ -63,37 +83,3 @@ def bleu(refs, preds):
         use_effective_order=False,
     ).score
     return score
-
-
-def rouge(refs, preds):
-    """
-    Returns `t5` style ROUGE scores. See the related implementation:
-    https://github.com/google-research/text-to-text-transfer-transformer/blob/3d10afd51ba97ac29eb66ae701eca274488202f7/t5/evaluation/metrics.py#L68
-
-    :param refs:
-        A `list` of reference `strs`.
-    :param preds:
-        A `list` of predicted `strs`.
-    """
-
-    rouge_types = ["rouge1", "rouge2", "rougeLsum"]
-
-    global ROUGE_SCORER
-    if ROUGE_SCORER is None:
-        # init RougeScorer once (https://github.com/EleutherAI/lm-evaluation-harness/issues/1692)--rouge_types are constant
-        ROUGE_SCORER = rouge_scorer.RougeScorer(rouge_types)
-    scorer = ROUGE_SCORER
-    # Add newlines between sentences to correctly compute `rougeLsum`.
-
-    def _prepare_summary(summary):
-        summary = summary.replace(" . ", ".\n")
-        return summary
-
-    # Accumulate confidence intervals.
-    aggregator = scoring.BootstrapAggregator()
-    for ref, pred in zip(refs, preds):
-        ref = _prepare_summary(ref)
-        pred = _prepare_summary(pred)
-        aggregator.add_scores(scorer.score(ref, pred))
-    result = aggregator.aggregate()
-    return {type: result[type].mid.fmeasure * 100 for type in rouge_types}

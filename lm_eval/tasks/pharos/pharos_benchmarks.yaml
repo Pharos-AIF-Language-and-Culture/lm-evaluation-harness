@@ -29,9 +29,11 @@ task:
   - ifeval
   - ifeval_el
   - greek_civics_qa
+  - greek_modern_history_qa
   - mcqa_greek_asep
   - medical_mcqa_greek
   - pharos_demosqa
+  - greek_history_co_qa
   - ancient-modern_greek_translations
   - modern-ancient_greek_translations
   # - mgsm_greek
