@@ -1,0 +1,20 @@
+task: greek_protipa_exams_maths_structured
+dataset_path: ilsp/greek-protipa-exams-private
+output_type: generate_until
+test_split: test
+process_docs: !function utils.process_maths_structured
+doc_to_text: !function utils.doc_to_text_structured
+doc_to_target: !function utils.doc_to_target_structured
+process_results: !function utils.process_results_structured
+generation_kwargs:
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 256
+  until:
+    - "\n\n"
+    - "Ερώτηση:"
+    - "---"
+metric_list:
+  - metric: structured_accuracy
+    aggregation: mean
+    higher_is_better: true
