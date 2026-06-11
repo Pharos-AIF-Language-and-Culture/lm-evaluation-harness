@@ -1,0 +1,4 @@
+group: greek_protipa_exams_aggregate
+task:
+  - greek_protipa_exams_closed_aggregate
+  - greek_protipa_exams_open_aggregate

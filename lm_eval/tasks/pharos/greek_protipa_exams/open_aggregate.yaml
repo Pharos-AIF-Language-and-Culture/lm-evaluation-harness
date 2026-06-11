@@ -1,0 +1,8 @@
+group: greek_protipa_exams_open_aggregate
+task:
+  - greek_protipa_exams_language_open
+  - greek_protipa_exams_maths_open
+  - greek_protipa_exams_physics_open
+aggregate_metric_list:
+  - metric: bertscore_f1_max
+    aggregation: mean

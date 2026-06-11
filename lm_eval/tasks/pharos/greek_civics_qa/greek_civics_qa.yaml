@@ -1,5 +1,3 @@
-tag:
-  - greek_civics_qa
 task: greek_civics_qa
 dataset_path: ilsp/greek_civics_qa
 dataset_name: default
