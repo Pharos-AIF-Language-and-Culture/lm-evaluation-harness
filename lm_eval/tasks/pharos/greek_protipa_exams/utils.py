@@ -248,6 +248,9 @@ def process_language_structured(dataset):
 def process_maths_structured(dataset): 
     return filter_by_mode_and_subject(dataset, mode='structured', subject='mathematics')
 
+def process_physics_structured(dataset): 
+    return filter_by_mode_and_subject(dataset, mode='structured', subject='physics')
+
 def doc_to_text_matching(doc):
     """Formats the prompt specifically for matching format questions."""
     prompt_parts = []
