@@ -1,7 +1,6 @@
 group: greek_protipa_exams_structured_aggregate
 task:
   - greek_protipa_exams_language_structured
-  - greek_protipa_exams_physics_structured
 aggregate_metric_list:
   - metric: structured_accuracy
     aggregation: mean

@@ -356,6 +356,14 @@ def process_results_structured(doc, results):
     pred = results[0] if results else ""
     target = doc_to_target_structured(doc)
     
+    if pred:
+        pred = pred.replace("**", "").replace("_", "")
+        parts = re.split(r'\\n|\n|\r\n|\s{2,}', pred)
+        pred = parts[0]
+        pred = pred.split("(")[0].split("[")[0]
+        pred = re.split(r'(Εξήγηση|Σημείωση|Παρατηρήσεις|Γράψε)', pred)[0]
+        pred = pred.strip()
+
     if fmt == "matching":
         score = matching_accuracy_metric([target], [pred])
     else:
