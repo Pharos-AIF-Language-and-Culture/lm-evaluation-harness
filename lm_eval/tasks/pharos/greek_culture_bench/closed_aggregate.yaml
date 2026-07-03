@@ -1,0 +1,19 @@
+# Aggregates the closed-ended Greek Culture Benchmark tasks into one group.
+# (The open-ended format is intentionally excluded here: it is not graded
+#  reliably by exact_match / partial_credit and is planned to be evaluated
+#  separately with an LLM-as-a-judge setup.)
+group: greek_culture_bench_closed_aggregate
+task:
+  - greek_culture_bench_mc
+  - greek_culture_bench_bool
+  - greek_culture_bench_list
+  - greek_culture_bench_order
+  - greek_culture_bench_match
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+  # partial_credit exists only for list/order/match; lm-eval aggregates it over
+  # just those subtasks (size-weighted) and warns that it is missing in the other
+  # two (bool/mc) — that warning is expected and harmless.
+  - metric: partial_credit
+    aggregation: mean
