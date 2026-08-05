@@ -21,10 +21,77 @@ so it never corrupts valid JSON that contains apostrophes.
 """
 
 import json
+import os
 import re
 import logging
 
+import yaml
+
 logger = logging.getLogger(__name__)
+
+# --------------------------------------------------------------------------- #
+# System prompt (full / persona / none)
+# --------------------------------------------------------------------------- #
+# lm-eval has no per-document *system* role and its --system_instruction flag is a
+# single GLOBAL string, but our personas are PER-CATEGORY. So we select the prompt
+# per doc here and prepend it to the user message (doc_to_text). The mode is chosen
+# with an environment variable so no per-run YAML edit is needed:
+#
+#     SYSTEM_PROMPT_MODE=none      -> bare Question (default; matches the Hub protocol)
+#     SYSTEM_PROMPT_MODE=persona   -> per-category persona + Question
+#     SYSTEM_PROMPT_MODE=full      -> persona + per-Question_Type format rules + Question
+#
+# The prompts live in prompts.yaml next to this file (per-category personas + per
+# Question_Type format rules); it is loaded lazily, only when the mode is not "none".
+
+_PROMPTS_CACHE = None
+_FORMAT_MARKER = "ΑΠΑΙΤΗΣΕΙΣ ΜΟΡΦΟΠΟΙΗΣΗΣ"  # legacy inline-rules marker; split it off for `persona`
+_DEFAULT_SYS = (
+    "Είσαι ένα εξειδικευμένο γλωσσικό μοντέλο για την ελληνική γλώσσα και τον πολιτισμό. "
+    "Απάντησε στα Ελληνικά με ακρίβεια, ακολουθώντας τη μορφή που ζητά η κάθε ερώτηση."
+)
+
+
+def _load_prompts():
+    """Load prompts.yaml (per-category personas + format rules) from this task's folder."""
+    global _PROMPTS_CACHE
+    if _PROMPTS_CACHE is None:
+        here = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(here, "prompts.yaml")
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                _PROMPTS_CACHE = yaml.safe_load(f) or {}
+        except Exception as e:  # missing file / parse error -> fall back to bare persona
+            logger.warning("Could not load prompts.yaml (%s); using default persona.", e)
+            _PROMPTS_CACHE = {}
+    return _PROMPTS_CACHE
+
+
+def _system_prompt(doc):
+    """Return the system-prompt text for the current SYSTEM_PROMPT_MODE, or '' for none."""
+    mode = os.environ.get("SYSTEM_PROMPT_MODE", "none").lower().strip()
+    if mode == "none":
+        return ""
+    prompts = _load_prompts()
+    category = (doc.get("Category") or "general")
+    raw = prompts.get(category, {}).get("system_instruction", _DEFAULT_SYS)
+    persona = str(raw).split(_FORMAT_MARKER)[0].strip()
+    if mode == "persona":
+        return persona
+    # full: persona + the formatting rules for THIS question's Question_Type
+    qtype = str(doc.get("Question_Type", "")).lower().strip()
+    fmt = prompts.get("format_rules", {}) or {}
+    rule = str(fmt.get(qtype) or fmt.get("default", "")).strip()
+    return (persona + "\n\n" + rule) if rule else persona
+
+
+def doc_to_text_dynamic(doc):
+    """Prompt text = optional system prompt (per SYSTEM_PROMPT_MODE) prepended to the
+    Question. With SYSTEM_PROMPT_MODE=none this is just the Question (the default)."""
+    question = str(doc.get("Question", ""))
+    sys = _system_prompt(doc)
+    return f"{sys}\n\n{question}" if sys else question
+
 
 # --------------------------------------------------------------------------- #
 # BERTScore (lazy import so closed-only runs don't pay the startup cost)
