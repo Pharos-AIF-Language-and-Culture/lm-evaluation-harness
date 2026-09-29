@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=none
+group: greek_panellinies_exams_closed_aggregate
+task:
+  - greek_panellinies_exams_ancient_greek_closed
+  - greek_panellinies_exams_economics_closed
+  - greek_panellinies_exams_physics_closed
+  - greek_panellinies_exams_history_closed
+  - greek_panellinies_exams_latin_closed
+  - greek_panellinies_exams_mathematics_closed
+  - greek_panellinies_exams_greek_language_closed
+  - greek_panellinies_exams_computer_science_closed
+  - greek_panellinies_exams_chemistry_closed
+  - greek_panellinies_exams_biology_closed
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean

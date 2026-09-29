@@ -1,0 +1,9 @@
+group: greek_panellinies_exams_structured_aggregate
+task:
+  - greek_panellinies_exams_ancient_greek_structured
+  - greek_panellinies_exams_latin_structured
+  - greek_panellinies_exams_computer_science_structured
+  - greek_panellinies_exams_biology_structured
+aggregate_metric_list:
+  - metric: structured_accuracy
+    aggregation: mean

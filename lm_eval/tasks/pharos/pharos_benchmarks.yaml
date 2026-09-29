@@ -36,6 +36,7 @@ task:
   - greek_history_co_qa
   - ancient-modern_greek_translations
   - modern-ancient_greek_translations
+  - greek_panellinies_exams_closed_aggregate
   - greek_protipa_exams_closed_aggregate
   - greek_culture_bench_closed_aggregate
   # - mgsm_greek

@@ -1,0 +1,5 @@
+group: greek_panellinies_exams_aggregate
+task:
+  - greek_panellinies_exams_closed_aggregate
+  - greek_panellinies_exams_structured_aggregate
+  - greek_panellinies_exams_open_aggregate
